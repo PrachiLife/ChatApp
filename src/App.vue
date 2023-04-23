@@ -1,18 +1,12 @@
 <template>
   <v-app>
-    <v-main>
-      <router-view/>
-    </v-main>
+    <navbarComponent/>
+    <router-link to="/"></router-link>
+    <!-- <router-link to="/about">About</router-link> -->
+    <router-view/>
   </v-app>
 </template>
 
-<script>
-
-export default {
-  name: 'App',
-
-  data: () => ({
-    //
-  }),
-}
+<script setup>
+import navbarComponent from "./components/navbarComponent.vue";
 </script>
