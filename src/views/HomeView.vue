@@ -11,18 +11,23 @@
           v-bind="props"
           min-width=150
         >
-        Sign Up
+        {{isLogin? 'Login' : 'Sign Up'}}
         </v-btn>
       </template>
-      <loginComponent :dialog="dialog"/>
+      <loginComponent @closeModal='dialog=false'/>
     </v-dialog>
   </div>
   </v-main>
 </template>
 <script setup>
-import {ref} from "vue";
+import {ref,computed} from "vue";
+import { useStore } from 'vuex';
 import loginComponent from "../components/loginComponent.vue"
 const dialog=ref(false);
+const store = useStore();
+const isLogin=computed(()=>{
+  return store.getters.isLogin;
+})
 </script>
 <style scoped>
 .bg-image {
